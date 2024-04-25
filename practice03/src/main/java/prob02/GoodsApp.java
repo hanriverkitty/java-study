@@ -11,8 +11,12 @@ public class GoodsApp {
 		Goods[] goods = new Goods[COUNT_GOODS];
 
 		// 상품 입력
-
-		// 상품 출
+		String line = scanner.nextLine();
+		String[] data = line.split(" ");
+		String name = data[0];
+		int price = Integer.parseInt(data[1]);
+		int count = Integer.parseInt(data[2]);
+		// 상품 출력
 		
 		// 자원정리
 		scanner.close();
