@@ -6,12 +6,12 @@ public class TV {
 	private boolean power;
 	
 	public TV() {
-		volume = 7;
-		channel = 20;
+		channel = 7;
+		volume = 20;
 		power = false;
 	}
 	
-	public TV(int volume, int channel, boolean power) {
+	public TV(int channel, int volume, boolean power) {
 		this.volume = volume;
 		this.channel = channel;
 		this.power = power;
