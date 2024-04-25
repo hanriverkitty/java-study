@@ -2,7 +2,7 @@ package prob06;
 
 import java.util.Scanner;
 
-public class CalcApp {
+public class CalcApp{
 
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
@@ -28,34 +28,26 @@ public class CalcApp {
 			
 			switch( tokens[ 1 ] ) {
 				case "+" : {
-					Add add = new Add();
-					add.setValue( lValue, rValue );
-					int result = add.calculate();
-					System.out.println( ">> " + result );
+					Calculator add = new Add(lValue, rValue);
+					System.out.println( ">> " + add.calculate());
 					
 					break;
 				}
 				case "-" : {
-					Sub sub = new Sub();
-					sub.setValue( lValue, rValue );
-					int result = sub.calculate();
-					System.out.println( ">> " + result );
+					Calculator sub = new Sub(lValue, rValue);
+					System.out.println( ">> " + sub.calculate());
 					
 					break;
 				}
 				case "*" : {
-					Mul mul = new Mul();
-					mul.setValue( lValue, rValue );
-					int result = mul.calculate();
-					System.out.println( ">> " + result );
+					Calculator mul = new Mul(lValue, rValue);
+					System.out.println( ">> " + mul.calculate());
 					
 					break;					
 				}
 				case "/" : {
-					Div div = new Div();
-					div.setValue( lValue, rValue );
-					int result = div.calculate();
-					System.out.println( ">> " + result );
+					Calculator div = new Div(lValue, rValue);
+					System.out.println( ">> " + div.calculate());
 					
 					break;
 				}
