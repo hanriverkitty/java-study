@@ -17,20 +17,25 @@ public class BookShop {
 		books[7] = new Book( 8,"귀천","천상병");
 		books[8] = new Book( 9,"태백산맥","조정래");
 		books[9] = new Book( 10,"풀하우스","원수연");
-		
-		displayBookInfo( books );
+				
 		Scanner scanner = new Scanner(System.in);
 		System.out.print("대여 하고 싶은 책의 번호를 입력하세요:");
 		int num = scanner.nextInt();
 		scanner.close();
 		
 		// (1) 입력된 번호에 맞는 책을 찾아 대여 되었음(상태코드=0)을 체크 합니다.
-		
-		// (2) Book 객체의 정보를 출력
-		
+		for (Book book:books) {
+			if(book.getBookNo()==num) {
+				book.rent();
+			}
+		}
+		// (2) Book 객체의 정보를 출력	
 		displayBookInfo( books );
+		for (Book book:books) {
+			book.print();
+		}
 	}
-	private void displayBookInfo(Book[] books) {
+	private static void displayBookInfo(Book[] books) {
 		System.out.println("*****도서 정보 출력하기******");
 	}
 }
