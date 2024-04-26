@@ -28,25 +28,25 @@ public class CalcApp{
 			
 			switch( tokens[ 1 ] ) {
 				case "+" : {
-					Calculator add = new Add(lValue, rValue);
+					Calculater add = new Add(lValue, rValue);
 					System.out.println( ">> " + add.calculate());
 					
 					break;
 				}
 				case "-" : {
-					Calculator sub = new Sub(lValue, rValue);
+					Calculater sub = new Sub(lValue, rValue);
 					System.out.println( ">> " + sub.calculate());
 					
 					break;
 				}
 				case "*" : {
-					Calculator mul = new Mul(lValue, rValue);
+					Calculater mul = new Mul(lValue, rValue);
 					System.out.println( ">> " + mul.calculate());
 					
 					break;					
 				}
 				case "/" : {
-					Calculator div = new Div(lValue, rValue);
+					Calculater div = new Div(lValue, rValue);
 					System.out.println( ">> " + div.calculate());
 					
 					break;

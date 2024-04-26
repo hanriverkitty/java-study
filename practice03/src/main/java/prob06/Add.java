@@ -1,6 +1,6 @@
 package prob06;
 
-public class Add extends Calculator{
+public class Add extends Calculater{
 	public Add(int a,int b) {
 		super(a,b);
 	}
