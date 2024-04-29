@@ -47,7 +47,7 @@ public class StringTest03 {
 		
 		String[] tokens2 = s6.split(" ");
 		for (String s : tokens2) {
-			System.out.println(s);W
+			System.out.println(s);
 		}
 	}
 
