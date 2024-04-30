@@ -6,6 +6,9 @@ public class Client {
 		System.out.println(new ConcreteComponent("Hello World").operation());
 		System.out.println(new BracesDecorator(new ConcreteComponent("Hello World")).operation());
 		System.out.println(new ParentheseDecorator(new BracesDecorator(new ConcreteComponent("Hello World"))).operation());
+		
+		System.out.println(new ParentheseDecorator(new ConcreteComponent("Hello World")).operation());
+		System.out.println(new BracesDecorator(new ParentheseDecorator(new ConcreteComponent("Hello World"))).operation());
 	}
 
 }
