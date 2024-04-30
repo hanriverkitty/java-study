@@ -15,6 +15,7 @@ public class PhoneList01 {
 				return;
 			}
 			FileInputStream fis = new FileInputStream(file);
+			fis.read();
 		} catch (FileNotFoundException e) {
 			
 		} catch (IOException e) {
