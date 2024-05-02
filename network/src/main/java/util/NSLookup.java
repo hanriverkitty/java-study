@@ -19,7 +19,7 @@ public class NSLookup {
 				for (InetAddress ip : inetAddresses) {
 					System.out.println(dns+" : "+ip.getHostAddress());
 				}
-			}s
+			}
 			
 		} catch (UnknownHostException e) {
 			e.printStackTrace();

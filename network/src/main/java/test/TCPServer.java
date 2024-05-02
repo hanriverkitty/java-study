@@ -49,15 +49,23 @@ public class TCPServer {
 
 					String data = new String(buffer, 0, readByteCount, "UTF-8");
 					System.out.println("[server] received: " + data);
-					
+
 					// 6. 데이터 쓰기
 					os.write(data.getBytes("utf-8"));
+
+					// SocketException 이 발생하는 부분
+//					try {
+//						Thread.sleep(1000);
+//					} catch (InterruptedException e) {
+//						e.printStackTrace();
+//					}
+//					os.write(data.getBytes("utf-8"));
 				}
 
 			} catch (SocketException e) {
-				System.out.println("[server] suddenly closed by client: " + e);
+				System.out.println("[server] SocketException : " + e);
 			} catch (IOException e) {
-				System.out.println("[server] error: " + e);
+				System.out.println("[server] error : " + e);
 			} finally {
 				try {
 					if (socket != null && !socket.isClosed()) {
