@@ -10,16 +10,21 @@ public class NSLookup {
 		Scanner sc = new Scanner(System.in);
 		try {
 			String dns = null;
-			while(!"exit".equals(dns)) {
+			while(true) {
 				dns = sc.nextLine();
+				if("exit".equals(dns)) {
+					return;
+				}
 				InetAddress[] inetAddresses = InetAddress.getAllByName(dns);
 				for (InetAddress ip : inetAddresses) {
 					System.out.println(dns+" : "+ip.getHostAddress());
 				}
-			}
+			}s
 			
 		} catch (UnknownHostException e) {
 			e.printStackTrace();
+		}finally {
+			sc.close();
 		}
 
 	}
