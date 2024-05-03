@@ -22,6 +22,7 @@ public class ChatClientThread extends Thread {
 					break;
 				}
 				if(data.contains("join")) {
+					System.out.println("즐거운 채팅되세요~");
 					continue;
 				}
 				if("채팅이 종료되었습니다".equals(data)) {
