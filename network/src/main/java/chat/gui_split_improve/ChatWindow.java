@@ -1,4 +1,4 @@
-package chat.gui;
+package chat.gui_split_improve;
 
 import java.awt.BorderLayout;
 import java.awt.Button;
@@ -99,6 +99,7 @@ public class ChatWindow {
 		} catch (IOException e1) {
 			e1.printStackTrace();
 		}
+		
 		pw.println("join:" + nick);
 		
 		// ChatClientThread 생성
