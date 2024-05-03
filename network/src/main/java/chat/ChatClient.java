@@ -37,7 +37,6 @@ public class ChatClient {
 			System.out.print("닉네임>>");
 			String nick = scanner.nextLine();
 			pw.println("join:" + nick);
-			pw.flush();
 
 			// 6. ChatClientThread 시작
 			new ChatClientThread(br).start();

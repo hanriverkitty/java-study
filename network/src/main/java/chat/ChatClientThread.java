@@ -21,19 +21,19 @@ public class ChatClientThread extends Thread {
 					System.out.println("[client] : suddenly closed by server");
 					break;
 				}
-				if(data.contains("join")) {
+				if (data.contains("join")) {
 					System.out.println("즐거운 채팅되세요~");
 					continue;
 				}
-				if("채팅이 종료되었습니다".equals(data)) {
+				if ("채팅이 종료되었습니다".equals(data)) {
 					return;
 				}
 				System.out.println(data);
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
-		}finally {
-			
+		} finally {
+
 		}
 
 	}

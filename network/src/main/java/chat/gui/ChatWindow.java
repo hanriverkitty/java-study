@@ -31,6 +31,7 @@ public class ChatWindow {
 	private PrintWriter pw;
 	private BufferedReader br;
 	private Socket socket;
+	private String nick;
 
 	public ChatWindow(String name, Socket socket) {
 		frame = new Frame(name);
@@ -39,6 +40,7 @@ public class ChatWindow {
 		textField = new TextField();
 		textArea = new TextArea(30, 80);
 		this.socket = socket;
+		this.nick = name;
 
 	}
 
@@ -84,6 +86,7 @@ public class ChatWindow {
 				finish();
 			}
 		});
+		
 		frame.setVisible(true);
 		frame.pack();
 
@@ -96,24 +99,24 @@ public class ChatWindow {
 		} catch (IOException e1) {
 			e1.printStackTrace();
 		}
+		pw.println("join:" + nick);
 		
 		// ChatClientThread 생성
+		new ChatClientThread(br).start();
 	}
 
 	private void finish() {
-		// quit 프로토콜 구현
+		pw.println("quit");
 		// exit java application
-		// System.exit(0)
+		System.exit(0);
 	}
 
 	private void sendMessage() {
 		String message = textField.getText();
-		System.out.println("메세지 보내는 프로토콜을 구현!:" + message);
+		System.out.println(nick + ":" + message);
 		textField.setText("");
 		textField.requestFocus();
-
-		// ChatClientThread 에서 서버로 부터 받은 메시지가 있다고 치고
-		updateTextArea("마이콜:" + message);
+		pw.println("message:" + message);
 	}
 
 	private void updateTextArea(String message) {
@@ -123,10 +126,40 @@ public class ChatWindow {
 
 	private class ChatClientThread extends Thread {
 
+		private BufferedReader bufferedReader;
+
+		public ChatClientThread(BufferedReader br) {
+			this.bufferedReader = br;
+		}
+
 		@Override
 		public void run() {
-			// String message = br.readline();
-			updateTextArea("마이콜:");
+			String data;
+			try {
+				while (true) {
+					data = bufferedReader.readLine();
+					if (data == null) {
+						System.out.println("[client] : suddenly closed by server");
+						break;
+					}
+					if (data.contains("join")) {
+						updateTextArea("즐거운 채팅되세요~");
+						continue;
+					}
+					if ("채팅이 종료되었습니다".equals(data)) {
+						return;
+					}
+					updateTextArea(data);
+				}
+			} catch (IOException e) {
+				e.printStackTrace();
+			} finally {
+				try {
+					br.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
 		}
 	}
 }
